@@ -8,15 +8,27 @@ router.use(
 );
 
 router.use(
-	"/authentication",
-	require("./authentication")
-	// #swagger.tags = ['Authentication']
+	"/home",
+	require("./home")
+	// #swagger.tags = ['Home']
 );
 
 router.use(
-	"/users",
-	require("./users")
-	// #swagger.tags = ['Users']
+	"/gallery",
+	require("./gallery")
+	// #swagger.tags = ['Gallery']
 );
+
+// router.use(
+// 	"/authentication",
+// 	require("./authentication")
+// 	// #swagger.tags = ['Authentication']
+// );
+
+// router.use(
+// 	"/users",
+// 	require("./users")
+// 	// #swagger.tags = ['Users']
+// );
 
 module.exports = router;

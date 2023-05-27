@@ -7,12 +7,18 @@ module.exports = (req, res, next) => {
 			message: "Data fetched sucessfully",
 			data: data.rows,
 			total: data.count,
-			limit: req.pagination.limit,
-			page: req.pagination.page,
-			hasNextPage:
-				Math.ceil(data.count / req.pagination.limit) - req.pagination.page > 0,
-			hasPreviousPage: req.pagination.page > 1,
-			totalPages: Math.ceil(data.count / req.pagination.limit),
+			...(req.pagination
+				? {
+						limit: req.pagination.limit,
+						page: req.pagination.page,
+						hasNextPage:
+							Math.ceil(data.count / req.pagination.limit) -
+								req.pagination.page >
+							0,
+						hasPreviousPage: req.pagination.page > 1,
+						totalPages: Math.ceil(data.count / req.pagination.limit),
+				  }
+				: {}),
 		});
 
 		next();

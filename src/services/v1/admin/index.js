@@ -1,7 +1,38 @@
 const express = require("express");
 const router = express.Router();
 const schema = require("./admin.schema");
-const { adminAuthorized } = require("../../../authentication");
+
+router.get(
+	"/",
+	schema.getAllAdmin
+	/* 	
+        #swagger.description = 'Get all admins list' 
+
+        #swagger.parameters['search'] = {
+            in: 'query',
+            type: "string"
+        }
+        #swagger.parameters['limit'] = {
+            in: 'query',
+            type: "number"
+        }
+        #swagger.parameters['page'] = {
+            in: 'query',
+            type: "number"
+        }
+        #swagger.parameters['sort'] = {
+            in: 'query',
+            type: "string"
+        }
+
+        #swagger.responses[200] = {
+            description: "Successful",
+        }   
+        #swagger.responses[500] = {
+            description: "Internal Server Error",
+        }   
+    */
+);
 
 router.post(
 	"/register",
